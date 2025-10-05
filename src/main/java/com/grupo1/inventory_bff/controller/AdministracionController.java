@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Value;
 
 @RestController
-@RequestMapping("/api/bodegas")
+@RequestMapping("/api/administracion")
 @CrossOrigin(origins = "*")
-public class BodegaController {
+public class AdministracionController {
 
         private final RestTemplate restTemplate = new RestTemplate();
-        @Value("${azure.function.url}")
+        @Value("${azure.functions.bodegas.url}")
         private String azureFunctionUrl;
 
-        @GetMapping("/bodega-function")
+        @GetMapping("/administracion-function")
         public String obtenerDato() {
                 ResponseEntity<String> response = restTemplate.getForEntity(azureFunctionUrl, String.class);
 
